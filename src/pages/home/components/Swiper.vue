@@ -1,6 +1,6 @@
 <template>
     <div class="swiper">
-        <swiper :options="swiperOption" >
+        <swiper :options="swiperOption" v-if="slideList.length">
             <swiper-slide v-for="slide of slideList" :key='slide.id'>
                 <img class="swiper-img" :src="slide.src"  :alt="slide.alt">
             </swiper-slide>
@@ -20,19 +20,11 @@ export default {
                 },
                 loop:true
             },
-            slideList:[
-                {   
-                    id:'001',
-                    src:'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/790fd1eacc298e09ae78025a03ab1c18.jpg_890x330_b2c44acb.jpg',
-                    alt:'上海杰尼斯'
-                },
-                {
-                    id:'002',
-                    src:'https://imgs.qunarzz.com/piao/fusion/1803/f2/928a8ff6148e5802.png_890x330_4c2f220f.png',
-                    alt:'北京石林'
-                },
-            ]
+           
         }
+    },
+    props:{
+        slideList:Array,
     }
 }
 </script>
