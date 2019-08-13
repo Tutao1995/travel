@@ -7,10 +7,12 @@
             <span class="iconfont">&#xe8ef;</span>
             输入城市/景点/游玩城市
         </div>
-        <div class="header-right">
+        <router-link to="/city">
+          <div class="header-right">
             {{city}}
             <span class="iconfont icon-arrow">&#xe8ec;</span>
-        </div>
+          </div>
+        </router-link>
     </div>
 </template>
 <script>
@@ -29,7 +31,7 @@ export default {
 <style lang="stylus" scoped>
     @import '~styles/variables.styl';
     .header
-        line-height : .86rem;
+        line-height : $headerHeight;
         display : flex;
         background: $bgColor;
         color:#fff;
@@ -53,6 +55,7 @@ export default {
             width 1.28rem;
             float:right;
             text-align: center;
+            color:#fff;
             .arrow
                 font-size: .24rem;
 
