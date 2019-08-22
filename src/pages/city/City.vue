@@ -2,8 +2,8 @@
     <div>
       <city-header></city-header>
       <city-search></city-search>
-      <city-list :hotCities="hotCities" :cities="cities"></city-list>
-      <city-alphabet :cities="cities"></city-alphabet>
+      <city-list :hotCities="hotCities" :cities="cities" :letter='letter'></city-list>
+      <city-alphabet :cities="cities" @change="handleChange"></city-alphabet>
     </div>
 </template>
 
@@ -20,7 +20,8 @@
       data(){
         return {
           cities:{},
-          hotCities:[]
+          hotCities:[],
+          letter:''
         }
       },
       components:{
@@ -38,6 +39,9 @@
           const data = res.data;
           this.cities = data.data.cities;
           this.hotCities = data.data.hotCities;
+        },
+        handleChange(letter){
+          this.letter = letter;
         }
       },
       mounted(){
