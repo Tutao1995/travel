@@ -5,7 +5,13 @@
         </div>
         <div class="recommand-content">
             <ul>
-                <li class="recommand-li" v-for="item of pages" :key="item.id">
+                <router-link 
+                    class="recommand-li" 
+                    v-for="item of pages" 
+                    :key="item.id"
+                    tag="li"
+                    :to="'/detail/'+item.id"
+                >
                     <div class="img-box">
                         <img class="img-content" :src="item.src">
                     </div>
@@ -21,7 +27,7 @@
                              起
                         </p>
                     </div>
-                </li>
+                </router-link>
             </ul>
             <div class="find-more" v-if="findFlag">
                 查看更多商品
@@ -69,7 +75,6 @@ export default {
         font-weight: bold;
     .recommand-content
         padding: .2rem 0;
-        
         ul
             .recommand-li
                 padding: .2rem;
